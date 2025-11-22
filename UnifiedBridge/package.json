@@ -1,0 +1,40 @@
+{
+  "name": "enobridge-unified",
+  "version": "1.0.0",
+  "description": "Unified Gasless Cross-Chain Bridge with AI Monitoring",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:amoy": "hardhat run scripts/deploy.js --network amoy",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "verify:amoy": "hardhat verify --network amoy",
+    "verify:sepolia": "hardhat verify --network sepolia",
+    "backend": "cd backend && npm start",
+    "ai-service": "cd ai_service && python main.py",
+    "frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run ai-service\" \"npm run frontend\""
+  },
+  "keywords": [
+    "blockchain",
+    "bridge",
+    "gasless",
+    "meta-transactions",
+    "cross-chain",
+    "AI",
+    "monitoring"
+  ],
+  "author": "EnoBridge Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/hardhat-upgrades": "^3.0.0",
+    "hardhat": "^2.19.0",
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.2.0",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.13.5"
+  }
+}

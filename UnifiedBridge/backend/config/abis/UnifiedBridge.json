@@ -1,0 +1,62 @@
+[
+  {
+    "inputs": [
+      {"internalType": "bytes32", "name": "requestId", "type": "bytes32"},
+      {"internalType": "address", "name": "token", "type": "address"},
+      {"internalType": "address", "name": "sender", "type": "address"},
+      {"internalType": "address", "name": "recipient", "type": "address"},
+      {"internalType": "uint256", "name": "amount", "type": "uint256"},
+      {"internalType": "uint256", "name": "destinationChain", "type": "uint256"},
+      {"internalType": "uint256", "name": "timestamp", "type": "uint256"}
+    ],
+    "name": "LockRequested",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {"internalType": "bytes32", "name": "requestId", "type": "bytes32"},
+      {"internalType": "address", "name": "token", "type": "address"},
+      {"internalType": "address", "name": "recipient", "type": "address"},
+      {"internalType": "uint256", "name": "amount", "type": "uint256"},
+      {"internalType": "uint256", "name": "sourceChain", "type": "uint256"}
+    ],
+    "name": "ReleaseCompleted",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {"internalType": "bytes32", "name": "requestId", "type": "bytes32"},
+      {"internalType": "address", "name": "token", "type": "address"},
+      {"internalType": "address", "name": "sender", "type": "address"},
+      {"internalType": "address", "name": "recipient", "type": "address"},
+      {"internalType": "uint256", "name": "tokenId", "type": "uint256"},
+      {"internalType": "uint256", "name": "destinationChain", "type": "uint256"},
+      {"internalType": "uint256", "name": "timestamp", "type": "uint256"}
+    ],
+    "name": "NFTLockRequested",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "pause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "unpause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {"internalType": "bytes32", "name": "newRoot", "type": "bytes32"}
+    ],
+    "name": "updateMerkleRoot",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
