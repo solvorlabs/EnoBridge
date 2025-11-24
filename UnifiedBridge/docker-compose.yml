@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: enobridge-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: enobridge
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - enobridge-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: enobridge-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - enobridge-network
+
+  backend:
+    build: ./backend
+    container_name: enobridge-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongodb:27017/enobridge
+      - REDIS_URL=redis://redis:6379
+      - AI_SERVICE_URL=http://ai-service:8000
+    env_file:
+      - .env
+    depends_on:
+      - mongodb
+      - redis
+      - ai-service
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - enobridge-network
+    command: npm run dev
+
+  ai-service:
+    build: ./ai_service
+    container_name: enobridge-ai
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - AI_SERVICE_PORT=8000
+    env_file:
+      - .env
+    networks:
+      - enobridge-network
+    command: python main.py
+
+  frontend:
+    build: ./frontend
+    container_name: enobridge-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:3000
+      - VITE_WS_URL=ws://localhost:3000
+    env_file:
+      - .env
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - enobridge-network
+    command: npm run dev
+
+networks:
+  enobridge-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+  redis_data:
