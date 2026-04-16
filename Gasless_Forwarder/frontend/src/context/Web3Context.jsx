@@ -41,7 +41,7 @@ export const Web3Provider = ({ children }) => {
           setForwarder(forwarderInstance);
         } else {
           // For local development, you can hardcode the address
-          const localContractAddress = "0x34C2dD81e1CF76E54762c0B7aD79029498D7b6A4";
+          const localContractAddress = "0x8323a8ab5889Bb313B76602Fe80BC2e319717FCA";
           const forwarderInstance = new web3Instance.eth.Contract(
             ForwarderContract.abi,
             localContractAddress

@@ -33,7 +33,7 @@ const generateTransferReceipt = (transferData) => {
 export default function Dashboard() {
   const { web3, account, forwarder, loading: web3Loading } = useContext(Web3Context);
   const [formData, setFormData] = useState({
-    tokenAddress: '0xd57dC05B81e7bA34904E97eCc809dE9b9803FC78',
+    tokenAddress: '0xC08cbc1EE5f4Cd46FfcAfD9dA48612a312b760FF',
     recipient: '',
     amount: '',
   });
@@ -45,9 +45,17 @@ export default function Dashboard() {
   const [shortAccount, setShortAccount] = useState('');
 
   const updateBalances = async () => {
-    if (!web3 || !formData.tokenAddress || !account) return;
+    // Require web3, token address, account and forwarder instance
+    if (!web3 || !formData.tokenAddress || !account || !forwarder) return;
 
     try {
+      // Defensive check: make sure there's actually contract code at the token address on the current provider.
+      // If MetaMask is connected to a different network than the one you deployed to, getCode will return '0x'.
+      const code = await web3.eth.getCode(formData.tokenAddress);
+      if (!code || code === '0x' || code === '0x0') {
+        throw new Error(`No contract found at ${formData.tokenAddress} on the current network. Check MetaMask network.`);
+      }
+
       const tokenContract = new web3.eth.Contract(
         TestToken.abi,
         formData.tokenAddress
@@ -57,11 +65,15 @@ export default function Dashboard() {
       const formattedBalance = web3.utils.fromWei(balance, 'ether');
       setAccountBalance(formattedBalance);
 
-      const contractBalance = await tokenContract.methods.balanceOf(forwarder._address).call();
+      // Prefer the standard options.address, fallback to legacy _address
+      const forwarderAddress = forwarder.options?.address || forwarder._address;
+      const contractBalance = await tokenContract.methods.balanceOf(forwarderAddress).call();
       const formattedContractBalance = web3.utils.fromWei(contractBalance, 'ether');
       setTokenBalance(formattedContractBalance);
     } catch (error) {
       console.error('Error fetching balances:', error);
+      // surface to UI so it's easier to debug
+      setStatus({ type: 'error', message: error.message });
     }
   };
 
