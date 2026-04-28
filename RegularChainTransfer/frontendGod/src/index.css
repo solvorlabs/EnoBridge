@@ -95,7 +95,7 @@ a {
   place-items: center;
   border-radius: 12px;
   font-family: "Sora", sans-serif;
-  font-weight: 700;
+  
   color: #fff;
   background: linear-gradient(130deg, #4f6cff, #31c7b0);
   box-shadow: 0 10px 26px rgba(66, 93, 255, 0.32);
@@ -104,7 +104,7 @@ a {
 .brand-name {
   margin: 0;
   font-size: 1.04rem;
-  font-weight: 800;
+  
   letter-spacing: -0.02em;
 }
 
@@ -124,7 +124,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 999px;
   font-size: 0.84rem;
-  font-weight: 700;
+  
   color: #2d3d68;
   padding: 9px 14px;
   background: rgba(255, 255, 255, 0.86);
@@ -154,7 +154,7 @@ a {
   background: linear-gradient(180deg, #ffffff, #f8fbff);
   color: #2a55d7;
   font-size: 0.8rem;
-  font-weight: 800;
+  
   letter-spacing: 0.02em;
   padding: 7px 14px;
 }
@@ -196,7 +196,7 @@ a {
   border-radius: 999px;
   padding: 12px 20px;
   font-size: 0.9rem;
-  font-weight: 800;
+  
   transition: transform 220ms ease;
 }
 
@@ -236,7 +236,7 @@ a {
   margin: 0;
   color: #506084;
   font-size: 0.78rem;
-  font-weight: 700;
+  
   text-transform: uppercase;
   letter-spacing: 0.07em;
 }
@@ -286,7 +286,7 @@ a {
 
 .stage-gasless {
   left: 3.2%;
-  top: 44px;
+  top: 4px;
   width: min(296px, 76%);
   padding: 16px;
   animation: driftY 7s ease-in-out infinite;
@@ -294,7 +294,7 @@ a {
 
 .stage-ai {
   right: 3.4%;
-  top: 54px;
+  top: 4px;
   width: min(286px, 74%);
   padding: 16px;
   animation: driftX 8s ease-in-out infinite;
@@ -302,7 +302,7 @@ a {
 
 .stage-relayer {
   right: 6.2%;
-  bottom: 40px;
+  bottom: 4px;
   width: min(270px, 70%);
   padding: 16px;
   animation: driftY 6s ease-in-out infinite;
@@ -312,7 +312,7 @@ a {
   margin: 0;
   color: #516184;
   font-size: 0.82rem;
-  font-weight: 800;
+  
   text-transform: uppercase;
   letter-spacing: 0.07em;
 }
@@ -352,14 +352,14 @@ a {
 
 .panel-top p {
   margin: 0;
-  font-weight: 800;
+  
   letter-spacing: -0.01em;
 }
 
 .panel-top span {
   border-radius: 999px;
   font-size: 0.78rem;
-  font-weight: 800;
+  
   color: #0d9e80;
   background: #e9fff8;
   padding: 6px 10px;
@@ -378,7 +378,7 @@ a {
   background: #f6f9ff;
   color: #2f4db6;
   font-size: 0.8rem;
-  font-weight: 800;
+  
   padding: 7px 10px;
   white-space: nowrap;
 }
@@ -473,7 +473,7 @@ a {
   margin: 0;
   color: #395dd7;
   font-size: 0.79rem;
-  font-weight: 800;
+  
   text-transform: uppercase;
   letter-spacing: 0.11em;
 }
@@ -520,7 +520,7 @@ a {
   height: 30px;
   border-radius: 9px;
   font-size: 0.79rem;
-  font-weight: 800;
+  
   color: #fff;
   background: linear-gradient(135deg, #4563ff, #30bfa8);
 }
@@ -551,7 +551,7 @@ a {
   margin: 0;
   color: #3a61d6;
   font-size: 0.8rem;
-  font-weight: 800;
+  
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -570,7 +570,7 @@ a {
   background: #f7faff;
   color: #345089;
   font-size: 0.84rem;
-  font-weight: 700;
+  
   padding: 8px 10px;
 }
 
@@ -591,7 +591,7 @@ a {
 .flow-card-head span {
   border-radius: 999px;
   font-size: 0.77rem;
-  font-weight: 800;
+  
   color: #2760cf;
   background: #edf3ff;
   padding: 6px 10px;
@@ -627,7 +627,7 @@ a {
   background: #fff;
   color: #345093;
   font-size: 0.72rem;
-  font-weight: 800;
+  
   text-align: center;
   padding: 6px;
 }

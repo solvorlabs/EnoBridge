@@ -67,9 +67,9 @@ const App = () => {
 
       <header className="nav shell">
         <div className="brand">
-          <span className="brand-mark" aria-hidden>
+          {/* <span className="brand-mark" aria-hidden>
             E
-          </span>
+          </span> */}
           <div>
             <p className="brand-name">EnoBridge</p>
             <p className="brand-sub">Gasless and cross-chain bridge stack</p>
@@ -79,14 +79,23 @@ const App = () => {
         <nav className="nav-links" aria-label="Primary">
           <a href="#how-it-works">How it works</a>
           <a href="#systems">Systems</a>
-          <a href="#flows">Mockups</a>
+          <a href="https://solvor.co.in/contact" target="_blank" rel="noopener noreferrer">
+            Contact Us
+          </a>
         </nav>
       </header>
 
       <section className="hero shell">
+        <Threads
+              className="hero-threads absolute 0 w-[100%] h-1/4 pointer-events-none"
+              color={[0.22, 0.49, 0.96]}
+              amplitude={1.35}
+              distance={0.22}
+              enableMouseInteraction
+            />
         <AnimatedContent distance={80} duration={0.85} ease="power3.out" threshold={0.2}>
           <div className="hero-copy-block">
-            <p className="status-pill">Live concept UI · Amoy, Sepolia, Multi-relayer</p>
+            <p className="status-pill">Amoy, Sepolia, Multi-relayer</p>
             <h1>
               Frictionless <span>gasless onboarding</span> and secure cross-chain transfer orchestration.
             </h1>
@@ -96,8 +105,8 @@ const App = () => {
             </p>
 
             <div className="hero-actions">
-              <a className="primary-button" href="#flows">
-                Explore flow mockups
+              <a className="primary-button" href="https://solvor.co.in/contact" target="_blank" rel="noopener noreferrer">
+                Request a demo
               </a>
               <a className="secondary-button" href="#systems">
                 View architecture
@@ -123,13 +132,6 @@ const App = () => {
 
         <AnimatedContent distance={120} duration={1} delay={0.08} threshold={0.15}>
           <div id="flows" className="hero-stage">
-            <Threads
-              className="hero-threads"
-              color={[0.22, 0.49, 0.96]}
-              amplitude={1.35}
-              distance={0.22}
-              enableMouseInteraction
-            />
 
             <article className="stage-card stage-main">
               <div className="panel-top">
@@ -287,7 +289,7 @@ const App = () => {
       </section>
 
       <footer className="shell footer">
-        <p>EnoBridge landing concept · Gasless Forwarder · AI Monitoring · Centralized + Decentralized Relayers</p>
+        <p>EnoBridge · Gasless Forwarder · AI Monitoring · Centralized + Decentralized Relayers</p>
       </footer>
     </main>
   );
